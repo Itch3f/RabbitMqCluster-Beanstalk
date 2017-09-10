@@ -1,0 +1,19 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": ""rabbitmq:3-management"",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": "15672"
+    }
+  ],
+  "Volumes": [
+    {
+      "HostDirectory": "/root/configs",
+      "ContainerDirectory": "/etc/rabbitmq"
+    }
+  ],
+  "Logging": "/var/log/rabbitmq"
+}
