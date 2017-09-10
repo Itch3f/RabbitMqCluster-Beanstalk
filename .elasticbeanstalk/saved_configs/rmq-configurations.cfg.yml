@@ -1,0 +1,29 @@
+EnvironmentConfigurationMetadata:
+  DateCreated: '1505040597000'
+  DateModified: '1505040597000'
+Platform:
+  PlatformArn: arn:aws:elasticbeanstalk:eu-west-1::platform/Docker running on 64bit Amazon Linux/2.7.3
+OptionSettings:
+  aws:elasticbeanstalk:command:
+    BatchSize: '30'
+    BatchSizeType: Percentage
+  aws:elb:policies:
+    ConnectionDrainingEnabled: true
+  aws:elb:loadbalancer:
+    CrossZone: true
+  aws:elasticbeanstalk:environment:
+    ServiceRole: aws-elasticbeanstalk-service-role
+    LoadBalancerType: classic
+  aws:elasticbeanstalk:healthreporting:system:
+    SystemType: enhanced
+  aws:autoscaling:launchconfiguration:
+    IamInstanceProfile: aws-elasticbeanstalk-ec2-role
+    InstanceType: t2.micro
+    EC2KeyName: eb-cli
+  aws:autoscaling:updatepolicy:rollingupdate:
+    RollingUpdateType: Health
+    RollingUpdateEnabled: true
+EnvironmentTier:
+  Type: Standard
+  Name: WebServer
+AWSConfigurationTemplateVersion: 1.1.0.0
