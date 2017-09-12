@@ -1,6 +1,6 @@
 branch-defaults:
   master:
-    environment: RabbitMqCluster-Beanstalk-dev
+    environment: null
     group_suffix: null
 global:
   application_name: RabbitMqCluster-Beanstalk
@@ -9,7 +9,7 @@ global:
   default_platform: Docker 17.03.1-ce
   default_region: eu-west-1
   include_git_submodules: true
-  instance_profile: null
+  instance_profile: dev-role
   platform_name: null
   platform_version: null
   profile: null
