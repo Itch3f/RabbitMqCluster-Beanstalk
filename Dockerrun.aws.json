@@ -14,19 +14,6 @@
       "image": "rabbitmq:3-management",
       "essential": true,
       "memory": 512,
-      "mountPoints": [
-        {
-          "sourceVolume": "rabbitmq-config",
-          "containerPath": "/etc/rabbitmq",
-          "readOnly": true
-        }
-      ]
-    },
-    {
-      "name": "rabbitmq",
-      "image": "rabbitmq:3-management",
-      "essential": true,
-      "memory": 512,
       "portMappings": [
         {
           "hostPort": 80,
