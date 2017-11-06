@@ -1,22 +1,46 @@
 {
-  "AWSEBDockerrunVersion": "1",
-  
-  "Image": {
-    "Name": "rabbitmq:3-management",
-    "Update": "true"
-  },
-
-  "Ports": [
-    {
-      "ContainerPort": "15672"
-    }
-  ],
-
+  "AWSEBDockerrunVersion": 2,
   "volumes": [
     {
-
-      "HostDirectory": "/root/conf",
-      "ContainerDirectory": "/etc/rabbitmq "
+      "name": "rabbitmq-config",
+      "host": {
+        "sourcePath": "/root/conf"
+      }
+    }
+  ],
+  "containerDefinitions": [
+    {
+      "name": "rabbitmq",
+      "image": "rabbitmq:3-management",
+      "essential": true,
+      "memory": 512,
+      "mountPoints": [
+        {
+          "sourceVolume": "rabbitmq-config",
+          "containerPath": "/etc/rabbitmq",
+          "readOnly": true
+        }
+      ]
+    },
+    {
+      "name": "rabbitmq",
+      "image": "rabbitmq:3-management",
+      "essential": true,
+      "memory": 512,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 15672
+        }
+      ],
+      
+      "mountPoints": [
+        {
+          "sourceVolume": "rabbitmq-config",
+          "containerPath": "/etc/rabbitmq",
+          "readOnly": true
+        }
+      ]
     }
   ]
 }
